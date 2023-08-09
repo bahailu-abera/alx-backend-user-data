@@ -3,10 +3,9 @@
 Module for encrypting password
 """
 import bcrypt
-from typing import ByteString
 
 
-def hash_password(password) -> ByteString:
+def hash_password(password) -> bytes:
     """
     Returns a salted, hashed password, which is a byte string.
     """
