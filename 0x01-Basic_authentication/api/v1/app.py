@@ -48,7 +48,7 @@ def before_request() -> None:
     """
     Filters each request.
     """
-    if not auth or auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
+    if not auth or not auth.require_auth(request.path, ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']):
         return
 
     if not auth.authorization_header(request):
