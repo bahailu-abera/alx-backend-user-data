@@ -10,9 +10,6 @@ class Auth:
     """
     Authentication module for the api.
     """
-    def __init__(self):
-        pass
-
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """
         Checks if the end point is required to authenticate.
