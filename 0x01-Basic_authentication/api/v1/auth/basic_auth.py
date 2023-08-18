@@ -3,7 +3,7 @@
 Basic Auth module.
 """
 from api.v1.auth.auth import Auth
-from flask import request
+import base64
 
 
 class BasicAuth(Auth):
@@ -25,3 +25,18 @@ class BasicAuth(Auth):
             return None
 
         return " ".join(authorization_header.split(' ')[1:])
+
+    def decode_base64_authorization_header(self,
+                                           base64_authorization_header: str) -> str:
+        """
+        Returns the decoded value of a Base64 string base64_authorization_header
+        """
+        try:
+            base64_bytes = base64_authorization_header.encode("utf-8")
+
+            base64_string_bytes = base64.b64decode(base64_bytes)
+
+            return base64_string_bytes.decode("utf-8")
+
+        except Exception:
+            return None
