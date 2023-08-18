@@ -52,7 +52,10 @@ class BasicAuth(Auth):
            ':' not in decoded_base64_authorization_header:
             return None, None
 
-        email, password = decoded_base64_authorization_header.split(':')
+        pos = decoded_base64_authorization_header.find(':')
+
+        email = decoded_base64_authorization_header[:pos]
+        password = decoded_base64_authorization_header[pos + 1:]
 
         return email, password
 
