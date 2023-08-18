@@ -21,4 +21,4 @@ class BasicAuth(Auth):
             or not authorization_header.startswith('Basic '):
             return None
 
-        return authorization_header.split(' ')[1:]
+        return " ".join(authorization_header.split(' ')[1:])
