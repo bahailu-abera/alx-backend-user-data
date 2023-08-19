@@ -4,7 +4,7 @@ from flask import jsonify, request
 from api.v1.views import app_views
 
 
-@app_views.route('/auth_session/login', methods=['GET'], strict_slashes=False)
+@app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
 def login():
     """
     Authenticate a user for login.
