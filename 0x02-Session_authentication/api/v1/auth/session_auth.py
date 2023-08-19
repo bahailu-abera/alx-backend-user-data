@@ -24,6 +24,6 @@ class SessionAuth(Auth):
 
         session_id = uuid4()
 
-        self.user_id_by_session_id = session_id
+        self.user_id_by_session_id[user_id] = session_id
 
-        return session_id
+        return str(session_id)
