@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+View for session Authentication
+"""
 from os import getenv
 from flask import jsonify, request
 from api.v1.views import app_views
