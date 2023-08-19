@@ -32,9 +32,9 @@ def login():
 
     from api.v1.app import auth
 
-    session_id = auth.create_session(user.user_id)
+    session_id = auth.create_session(user.id)
 
-    response = jsonify(user)
+    response = jsonify(user.to_json())
 
     cookie_name = getenv('SESSION_NAME')
 
