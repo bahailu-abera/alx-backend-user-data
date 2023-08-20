@@ -31,6 +31,12 @@ elif auth_type == 'session_auth':
 
     auth = SessionAuth()
 
+elif auth_type == 'session_exp_auth':
+    from api.v1.auth.session_exp_auth import SessionExpAuth
+
+    auth = SessionExpAuth()
+
+
 excluded_paths = [
     '/api/v1/status/',
     '/api/v1/unauthorized/',
