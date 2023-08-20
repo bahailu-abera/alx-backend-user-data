@@ -29,4 +29,7 @@ class SessionDBAuth(SessionExpAuth):
         user_session.save_to_file()
 
     def destroy_session(self, request=None):
+        """
+        Destory the session.
+        """
         return super().destroy_session(request)
