@@ -86,7 +86,7 @@ class Auth:
         try:
             user = self._db.find_user_by(session_id=session_id)
 
-            return user.session_id
+            return user
 
         except NoResultFound:
             return None
@@ -96,7 +96,7 @@ class Auth:
         Destroys the session for the user.
         """
         try:
-            self._db.update_user(user_id=user_id, session_id=None)
+            self._db.update_user(user_id=user_id, session_id="")
 
         except NoResultFound:
             return None
