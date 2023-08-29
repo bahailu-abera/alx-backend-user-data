@@ -3,8 +3,13 @@
 Basic App
 """
 from flask import Flask
-from flask import Blueprint
 from flask import jsonify
+from flask import request
+
+from auth import Auth
+
+
+AUTH = Auth()
 
 
 app = Flask(__name__)
@@ -16,6 +21,23 @@ def home():
     Landing page.
     """
     return jsonify({"message": "Bienvenue"})
+
+
+@app.route("/users", methods=["POST"], strict_slashes=False)
+def users():
+    """
+    End point for registring a user.
+    """
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    try:
+        AUTH.register_user(email=email, password=password)
+
+        return jsonify({"email": email, "message": "user created"})
+
+    except ValueError:
+        return jsonify({"message": "email already registered"}), 400
 
 
 if __name__ == "__main__":
